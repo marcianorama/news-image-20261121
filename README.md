@@ -35,7 +35,8 @@ python3 main.py
 
 `entry.png` was generated offline by `build_image.py` (Pillow, DejaVu fonts)
 and is bundled here; `main.py` copies it deterministically with the standard
-library only.
+library only. Verified: running `main.py` writes `/output/entry.png` with the
+same sha256 as the bundled `entry.png`, so both runs produce identical bytes.
 
 ---
 

@@ -17,6 +17,8 @@ import shutil
 def main() -> None:
     here = os.path.dirname(os.path.abspath(__file__))
     src = os.path.join(here, "entry.png")
+    if not os.path.isfile(src):
+        raise FileNotFoundError(f"bundled image not found: {src}")
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
     shutil.copyfile(src, os.path.join(out_dir, "entry.png"))

@@ -3,6 +3,9 @@
 Deterministic, offline, PIL-only. Text verified against Reuters/AP/CNN/NYT
 reporting of Saturday 21 November 2026 (see SOURCES in README)."""
 from PIL import Image, ImageDraw, ImageFont
+import os
+
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entry.png")
 
 W = H = 1024
 BG = (247, 243, 235)      # paper
@@ -111,7 +114,6 @@ for i, (kick, col, txt) in enumerate(cols):
 d.text((36, 966), "Sources: Reuters • AP • CNN • NYT  —  21 Nov 2026",
        font=F(SANS, 18), fill=GREY)
 
-img.save("/home/hatch/workspace/news-image-build/entry.png", optimize=True)
+img.save(OUT, optimize=True)
 print("saved", img.size)
-import os
-print("bytes:", os.path.getsize("/home/hatch/workspace/news-image-build/entry.png"))
+print("bytes:", os.path.getsize(OUT))
